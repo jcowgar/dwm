@@ -5,8 +5,8 @@ static const unsigned int borderpx      = 3;        /* border pixel of windows *
 static const unsigned int snap          = 32;       /* snap pixel */
 static const int showbar                = 1;        /* 0 means no bar */
 static const int topbar                 = 1;        /* 0 means bottom bar */
-static const char *fonts[]              = { "monospace:size=12" };
-static const char dmenufont[]           = "monospace:size=12";
+static const char *fonts[]              = { "hack:size=14" };
+static const char dmenufont[]           = "hack:size=14";
 static const char colorNormalFg[]       = "#a5c6d7";
 static const char colorNormalBg[]       = "#397887";
 static const char colorNormalBorder[]   = "#090a09";
@@ -26,16 +26,18 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "#1: Gen","#2: Dev 1","#3: Dev 2","#4: Term 1","#5: Term 2","#6: Misc","#7: Misc","#8: AMPS","#9: Web" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class      instance    title                                    tags mask    isfloating   monitor */
+	{ "Gimp",     NULL,       NULL,                                    0,           1,           -1 },
+	{ "Surf",     NULL,       "Mail - Jeremy Cowgar - Outlook",        0b010000000, 0,           -1 },
+	{ "Surf",     NULL,       "Calendar - Jeremy Cowgar - Outlook",    0b010000000, 0,           -1 },
+	{ "Surf",     NULL,       "JIRA - AMPS",                           0b010000000, 0,           -1 },
 };
 
 /* layout(s) */
@@ -95,10 +97,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	/* { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } }, */
+	/* { MODKEY,                       XK_period, focusmon,       {.i = +1 } }, */
+	/* { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } }, */
+	/* { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } }, */
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
