@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx      = 2;        /* border pixel of windows */
+static const unsigned int borderpx      = 3;        /* border pixel of windows */
 static const unsigned int snap          = 32;       /* snap pixel */
 static const int showbar                = 1;        /* 0 means no bar */
 static const int topbar                 = 1;        /* 0 means bottom bar */
@@ -13,7 +13,7 @@ static const char colorNormalBorder[]   = "#090a09";
 static const char colorSelectedFg[]     = "#ffffff";
 static const char colorSelectedBg[]     = "#916497";
 static const char colorSelectedBorder[] = "#e56b8b";
-static const unsigned int baralpha = 0xd0;
+static const unsigned int baralpha = 0xFF;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3] = {
 	[SchemeNorm] = { colorNormalFg,   colorNormalBg,   colorNormalBorder },
@@ -106,7 +106,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
+	{ MODKEY|ControlMask,           XK_q,      quit,           {1} },
 };
 
 /* button definitions */
